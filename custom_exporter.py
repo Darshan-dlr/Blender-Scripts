@@ -42,9 +42,10 @@ class ExportModel(Operator, ExportHelper):
         filepath_split = self.filepath.rsplit('.',1)
         if len(filepath_split) > 1:
             filepath, file_extension = filepath_split
-        if file_extension != self.file_format:
             filepath += self.file_format
-        
+        else:
+            filepath = filepath_split + self.file_format
+                    
         if self.file_format == '.obj':
             self.filename_ext = '.obj'
             bpy.ops.wm.obj_export(
@@ -67,7 +68,7 @@ def menu_func(self, context: Context):
     :param context: The Blender context.
     """
     self.layout.operator_context = 'INVOKE_DEFAULT'
-    self.layout.operator(ExportModel.bl_idname, text="Export Model")
+    self.layout.operator(ExportModel.bl_idname, text="Custom Export (.obj/.fbx)")
 
 def register():
     """

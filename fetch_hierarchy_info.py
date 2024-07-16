@@ -59,7 +59,7 @@ def main() -> None:
     """
     if bpy.context.active_object:
         main_object: bpy.types.Object = bpy.context.active_object
-        parent_name, all_children_names = hierarchy_info(main_object)
+        parent_name, all_children_names = get_hierarchy_info(main_object)
         
         print(f"Root/Main Parent Name: {parent_name}")
         print("Children Names:")

@@ -1,7 +1,7 @@
 """
 Material Texture Setter
 
-This script automates texture assignment to Blender object materials. It creates a new material if needed and sets up nodes to incorporate the provided texture file.
+print(bsdf_node)
 
 Author: Darshan D
 Date: 2024-05-21
